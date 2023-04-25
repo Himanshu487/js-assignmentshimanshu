@@ -1,34 +1,53 @@
 
-let PrincipalAmount = prompt('enter the principal amount');
+function calculateValue(){
 
-let rateOFannulInterest = prompt('enter the rate of annual interest');
 
-let durationOfLoanInMonths = prompt('enter the duration of loan in months')
+    let principalAmount = document.getElementById('principalAmount').value;
+    let rateOfannulInterest = document.getElementById('rateOfannulInterest').value;
+    let durationOfLoanInMonths = document.getElementById('durationOfLoanInMonths').value;
 
-let r = rateOFannulInterest/12/100
+    console.log("principalAmount",principalAmount)
+    console.log("rateOfannulInterest",rateOfannulInterest)
+    console.log("durationOfLoanInMonths",durationOfLoanInMonths)
 
-console.log("the value of r is",r);
+    // console.log("the value of event",event.target.id)
 
-let n = durationOfLoanInMonths;
+// let principalAmount = prompt('enter the principal amount');
 
-let P = PrincipalAmount;
+// let rateOfannulInterest = prompt('enter the rate of annual interest');
 
-x=(1+r)**n;
+// let durationOfLoanInMonths = prompt('enter the duration of loan in months')
 
-console.log("X",x)
+let rateOfInterestOnMonthlyBasis = rateOfannulInterest/12/100
 
-y=(((1+r)**n)-1);
+// console.log("the value of r is",r);
 
-console.log("Y",y)
+// let n = durationOfLoanInMonths;
 
-let k = x/y
+// let P = principalAmount;
 
-console.log("the value of k",k)
+let numeratorValue = (1+rateOfInterestOnMonthlyBasis)**durationOfLoanInMonths;
 
-let E = P*r*k
+// console.log("X",x)
 
-console.log('the value is',E);
+let denominatorValue = (((1+rateOfInterestOnMonthlyBasis)**durationOfLoanInMonths)-1);
 
-alert('you have to pay '+ E +  `
-amount every month to repay your entire loan amount in ${durationOfLoanInMonths} months with ${rateOFannulInterest}% of annual interest rate`)
+// console.log("Y",y)
 
+// let k = x/y
+let calValue = numeratorValue/denominatorValue;
+
+// console.log("the value of k",k)
+
+// let E = P*r*k
+let EMI = principalAmount*rateOfInterestOnMonthlyBasis*calValue
+
+// console.log('the value is',EMI);
+
+let totalAmounttpbePaid = EMI*durationOfLoanInMonths;
+
+alert('you have to pay '+ EMI +  `
+amount every month to repay your entire loan amount in ${durationOfLoanInMonths} months with ${rateOfannulInterest}% of annual interest rate
+and the total amount to be paid will be ${totalAmounttpbePaid}`);
+
+}
