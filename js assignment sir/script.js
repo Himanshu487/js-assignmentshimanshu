@@ -1,6 +1,6 @@
 
-function calculateValue(){
-
+function calculateValue(event){
+event.preventDefault();
 
     let principalAmount = document.getElementById('principalAmount').value;
     let rateOfannulInterest = document.getElementById('rateOfannulInterest').value;
@@ -57,17 +57,18 @@ let totalAmounttpbePaid = EMI*durationOfLoanInMonths;
 // console.log("checkV.innerHTML ",checkV.innerHTML )
 
 
-
-
 // checkV.innerHTML = `you have to pay ${EMI}
 // amount every month to repay your entire loan amount in ${durationOfLoanInMonths} months with ${rateOfannulInterest}% of annual interest rate
 // and the total amount to be paid will be ${totalAmounttpbePaid}`;
+console.log(typeof EMI, typeof durationOfLoanInMonths,typeof rateOfannulInterest, typeof totalAmounttpbePaid)
+console.log( EMI,  durationOfLoanInMonths, rateOfannulInterest, totalAmounttpbePaid)
+
 
 checkV.innerHTML = `you have to pay ${EMI}
-amount every month to repay your entire loan amount in ${durationOfLoanInMonths} months with ${rateOfannulInterest}% of annual interest rate
+amount every month to repay your entire loan amount in ${Number(durationOfLoanInMonths)} months with ${Number(rateOfannulInterest)}% of annual interest rate
 and the total amount to be paid will be ${totalAmounttpbePaid}`;
 
 
 }
 
-calculateValue();
+// calculateValue();
